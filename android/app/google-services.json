@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "906002466504",
+    "firebase_url": "https://farmersmarket-718db.firebaseio.com",
+    "project_id": "farmersmarket-718db",
+    "storage_bucket": "farmersmarket-718db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906002466504:android:d2eab9302388afa2ba07fd",
+        "android_client_info": {
+          "package_name": "com.vleiswa.farmers_market"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "906002466504-2jd6lqluiran8ieitc2674ivdj68c8n4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vleiswa.farmers_market",
+            "certificate_hash": "865d80e9de2419e9b74312d06394a1bb232dde75"
+          }
+        },
+        {
+          "client_id": "906002466504-smkhlk40au3ve15j59dmcimvvutbi3be.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_EubbnAJE7OqU-rpfiQBGxgCuNA715rE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "906002466504-smkhlk40au3ve15j59dmcimvvutbi3be.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
