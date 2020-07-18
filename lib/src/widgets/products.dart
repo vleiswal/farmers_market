@@ -40,6 +40,7 @@ class Products extends StatelessWidget {
                         productName: product.productName,
                         availableUnits: product.availableUnits,
                         price: product.unitPrice,
+                        imageUrl: product.imageUrl,
                         //note: product.note,
                       ),
                       onTap: () => Navigator.of(context)
