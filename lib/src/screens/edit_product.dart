@@ -141,7 +141,7 @@ class _EditProductState extends State<EditProduct> {
               return AppTextField(
                 isIOS: isIOS,
                 hintText: 'Unit Price',
-                textInputType: TextInputType.number,
+                textInputType: TextInputType.numberWithOptions(decimal: true),
                 cupertinoIcon: FontAwesomeIcons.tag,
                 materialIcon: FontAwesomeIcons.tag,
                 errorText: snapshot.error,
