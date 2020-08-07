@@ -1,3 +1,4 @@
+import 'package:farmers_market/src/screens/customer.dart';
 import 'package:farmers_market/src/screens/edit_product.dart';
 import 'package:farmers_market/src/screens/landing.dart';
 import 'package:farmers_market/src/screens/login.dart';
@@ -26,11 +27,12 @@ abstract class Routes {
 
       default:
         var routeArray = settings.name.split('/');
-        if (settings.name.contains('/editproduct')) {
+        if (settings.name.contains('/editproduct/')) {
           return MaterialPageRoute(
-              builder: (context) => EditProduct(
-                    productId: routeArray[2],
-                  ));
+              builder: (context) => EditProduct(productId: routeArray[2]));
+        } else if (settings.name.contains('/customer/')) {
+          return MaterialPageRoute(
+              builder: (context) => Customer(marketId: routeArray[2]));
         }
         return MaterialPageRoute(builder: (context) => Login());
     }
@@ -55,11 +57,14 @@ abstract class Routes {
 
       default:
         var routeArray = settings.name.split('/');
-        if (settings.name.contains('/editproduct')) {
+        if (settings.name.contains('/editproduct/')) {
           return CupertinoPageRoute(
               builder: (context) => EditProduct(
                     productId: routeArray[2],
                   ));
+        } else if (settings.name.contains('/customer/')) {
+          return CupertinoPageRoute(
+              builder: (context) => Customer(marketId: routeArray[2]));
         }
         return CupertinoPageRoute(builder: (context) => Login());
     }

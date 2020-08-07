@@ -10,12 +10,14 @@ class AppListTile extends StatelessWidget {
   final String title;
   final String location;
   final bool acceptingOrders;
+  final String marketId;
 
   AppListTile({
     @required this.month,
     @required this.date,
     @required this.title,
     @required this.location,
+    @required this.marketId,
     this.acceptingOrders = false,
   });
 
@@ -45,6 +47,9 @@ class AppListTile extends StatelessWidget {
           trailing: (acceptingOrders)
               ? Icon(FontAwesomeIcons.shoppingBasket, color: AppColors.darkblue)
               : Text(' '),
+          onTap: (acceptingOrders)
+              ? () => Navigator.of(context).pushNamed('/customer/$marketId')
+              : null,
         ),
         Padding(
           padding:

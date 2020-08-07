@@ -12,8 +12,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'blocs/customer_bloc.dart';
+
 final authBloc = AuthBloc();
 final productBloc = ProductBloc();
+final customerBloc = CustomerBloc();
 final firestoreService = FirestoreService();
 
 class App extends StatefulWidget {
@@ -27,6 +30,7 @@ class _AppState extends State<App> {
     return MultiProvider(providers: [
       Provider(create: (context) => authBloc),
       Provider(create: (context) => productBloc),
+      Provider(create: (context) => customerBloc),
       FutureProvider(create: (context) => authBloc.isLoggedIn()),
       StreamProvider(
         create: (context) => firestoreService.fetchUnitTypes(),
@@ -38,6 +42,7 @@ class _AppState extends State<App> {
   void dispose() {
     authBloc.dispose();
     productBloc.dispose();
+    customerBloc.dispose();
     super.dispose();
   }
 }
