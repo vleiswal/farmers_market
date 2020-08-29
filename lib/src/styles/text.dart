@@ -17,6 +17,13 @@ abstract class TextStyles {
             fontSize: 30.0),
       );
 
+  static TextStyle get listTitle => GoogleFonts.economica(
+        textStyle: TextStyle(
+            color: AppColors.straw,
+            fontWeight: FontWeight.bold,
+            fontSize: 25.0),
+      );
+
   static TextStyle get navTitle => GoogleFonts.poppins(
         textStyle: TextStyle(
           color: AppColors.darkblue,
@@ -32,19 +39,31 @@ abstract class TextStyles {
       );
 
   static TextStyle get body => GoogleFonts.roboto(
-        textStyle: TextStyle(color: AppColors.darkgray, fontSize: 16.0),
+        textStyle: TextStyle(
+          color: AppColors.darkgray,
+          fontSize: 16.0,
+        ),
       );
 
   static TextStyle get bodyLightBlue => GoogleFonts.roboto(
-        textStyle: TextStyle(color: AppColors.lightblue, fontSize: 16.0),
+        textStyle: TextStyle(
+          color: AppColors.lightblue,
+          fontSize: 16.0,
+        ),
       );
 
   static TextStyle get bodyRed => GoogleFonts.roboto(
-        textStyle: TextStyle(color: AppColors.red, fontSize: 16.0),
+        textStyle: TextStyle(
+          color: AppColors.red,
+          fontSize: 16.0,
+        ),
       );
 
   static TextStyle get picker => GoogleFonts.roboto(
-        textStyle: TextStyle(color: AppColors.darkgray, fontSize: 35.0),
+        textStyle: TextStyle(
+          color: AppColors.darkgray,
+          fontSize: 35.0,
+        ),
       );
 
   static TextStyle get link => GoogleFonts.roboto(
