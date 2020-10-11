@@ -35,7 +35,8 @@ class VendorBloc {
   Stream<Vendor> get vendor => _vendor.stream;
   Stream<bool> get isUploading => _isUploading.stream;
   Stream<bool> get isValid =>
-      CombineLatestStream.combine2(name, description, (a, b) => true);
+      CombineLatestStream.combine2(name, description, (a, b) => true)
+          .asBroadcastStream();
 
   // Setters
   Function(String) get changeName => _name.sink.add;

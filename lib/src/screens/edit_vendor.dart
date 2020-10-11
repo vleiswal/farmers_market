@@ -118,8 +118,8 @@ class _EditVendorState extends State<EditVendor> {
               return AppTextField(
                 isIOS: isIOS,
                 hintText: 'Vendor Name',
-                cupertinoIcon: FontAwesomeIcons.shoppingBasket,
-                materialIcon: FontAwesomeIcons.shoppingBasket,
+                cupertinoIcon: FontAwesomeIcons.sign,
+                materialIcon: FontAwesomeIcons.sign,
                 errorText: snapshot.error,
                 initialText:
                     (existingVendor != null) ? existingVendor.name : null,
@@ -132,8 +132,9 @@ class _EditVendorState extends State<EditVendor> {
               return AppTextField(
                 isIOS: isIOS,
                 hintText: 'Description',
-                cupertinoIcon: FontAwesomeIcons.shoppingBasket,
-                materialIcon: FontAwesomeIcons.shoppingBasket,
+                maxLines: 7,
+                cupertinoIcon: FontAwesomeIcons.book,
+                materialIcon: FontAwesomeIcons.book,
                 errorText: snapshot.error,
                 initialText: (existingVendor != null)
                     ? existingVendor.description

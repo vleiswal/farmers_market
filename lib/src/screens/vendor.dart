@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:farmers_market/src/blocs/auth_bloc.dart';
+import 'package:farmers_market/src/blocs/vendor_bloc.dart';
 import 'package:farmers_market/src/styles/tabbar.dart';
 import 'package:farmers_market/src/widgets/navbar.dart';
 import 'package:farmers_market/src/widgets/orders.dart';
@@ -37,7 +38,11 @@ class _VendorState extends State<Vendor> {
   @override
   void initState() {
     Future.delayed(Duration.zero, () {
-      var authBloc = Provider.of<AuthBloc>(context, listen: false);
+      final authBloc = Provider.of<AuthBloc>(context, listen: false);
+      final vendorBloc = Provider.of<VendorBloc>(context, listen: false);
+      vendorBloc
+          .fetchVendor(authBloc.userId)
+          .then((vendor) => vendorBloc.changeVendor(vendor));
       _userSubscription = authBloc.user.listen(
         (user) {
           if (user == null)
