@@ -70,8 +70,6 @@ class _EditVendorState extends State<EditVendor> {
           );
         }
 
-        //TODO Load Bloc Values
-
         Vendor vendor = snapshot.data;
 
         if (vendor != null) {

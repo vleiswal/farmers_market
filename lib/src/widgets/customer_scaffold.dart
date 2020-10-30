@@ -20,11 +20,11 @@ abstract class CustomerScaffold {
       backgroundColor: AppColors.darkblue,
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.create), title: Text('Products')),
+            icon: Icon(CupertinoIcons.create), label: ('Products')),
         BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.shoppingBag), title: Text('Orders')),
+            icon: Icon(FontAwesomeIcons.shoppingBag), label: ('Orders')),
         BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.person), title: Text('Profile')),
+            icon: Icon(CupertinoIcons.person), label: ('Profile')),
       ],
     );
   }

@@ -4,6 +4,7 @@ import 'package:farmers_market/src/models/application_user.dart';
 import 'package:farmers_market/src/services/firestore_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_login_facebook/flutter_login_facebook.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:rxdart/subjects.dart';
 
@@ -17,6 +18,7 @@ class AuthBloc {
   final _errorMessage = BehaviorSubject<String>();
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirestoreService _firestoreService = FirestoreService();
+  final fb = FacebookLogin();
 
   //Get Data
   Stream<String> get email => _email.stream.transform(validateEmail);
@@ -87,6 +89,43 @@ class AuthBloc {
     } on PlatformException catch (error) {
       print(error);
       _errorMessage.sink.add(error.message);
+    }
+  }
+
+  signinFacebook() async {
+    //Facebook Login
+    final res = await fb.logIn(permissions: [
+      FacebookPermission.publicProfile,
+      FacebookPermission.email,
+    ]);
+
+    switch (res.status) {
+      case FacebookLoginStatus.Success:
+        final FacebookAccessToken fbToken = res.accessToken;
+        AuthCredential credential =
+            FacebookAuthProvider.credential(fbToken.token);
+
+        // SignIn to FireBase
+        final result = await _auth.signInWithCredential(credential);
+
+        // Check if user has an account
+        var existingUser = await _firestoreService.fetchUser(result.user.uid);
+        var user =
+            ApplicationUser(userId: result.user.uid, email: result.user.email);
+        if (existingUser == null) {
+          await _firestoreService.addUser(user);
+          _user.sink.add(user);
+        } else {
+          _user.sink.add(user);
+        }
+        break;
+      case FacebookLoginStatus.Cancel:
+        _errorMessage.sink.add('Cancelled by User');
+        break;
+      case FacebookLoginStatus.Error:
+        _errorMessage.sink.add('Facebook Authorization Failed');
+        print(res.error.toString());
+        break;
     }
   }
 

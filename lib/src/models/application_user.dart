@@ -13,7 +13,9 @@ class ApplicationUser {
     };
   }
 
-  ApplicationUser.fromFirestore(Map<String, dynamic> firestore)
-      : userId = firestore['userId'],
-        email = firestore['email'];
+  factory ApplicationUser.fromFirestore(Map<String, dynamic> firestore) {
+    if (firestore == null) return null;
+    return ApplicationUser(
+        userId: firestore['userId'], email: firestore['email']);
+  }
 }

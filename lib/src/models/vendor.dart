@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class Vendor {
   final String vendorId;
   final String name;

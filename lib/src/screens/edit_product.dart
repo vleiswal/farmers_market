@@ -63,8 +63,6 @@ class _EditProductState extends State<EditProduct> {
           );
         }
 
-        //TODO Load Bloc Values
-
         Product existingProduct;
 
         if (widget.productId != null) {

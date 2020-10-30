@@ -58,9 +58,12 @@ class PlatformApp extends StatelessWidget {
 
     if (Platform.isIOS) {
       return CupertinoApp(
+        title: 'Farmers Market',
         home: (isLoggedIn == null)
             ? loadingScreen(true)
-            : (isLoggedIn == true) ? Landing() : Login(),
+            : (isLoggedIn == true)
+                ? Landing()
+                : Login(),
         onGenerateRoute: Routes.cupertinoRoutes,
         theme: CupertinoThemeData(
             primaryColor: AppColors.straw,
@@ -71,9 +74,12 @@ class PlatformApp extends StatelessWidget {
       );
     } else {
       return MaterialApp(
+        title: 'Farmers Market',
         home: (isLoggedIn == null)
             ? loadingScreen(false)
-            : (isLoggedIn == true) ? Landing() : Login(),
+            : (isLoggedIn == true)
+                ? Landing()
+                : Login(),
         onGenerateRoute: Routes.materialRoutes,
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.white,

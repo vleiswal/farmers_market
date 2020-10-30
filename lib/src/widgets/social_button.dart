@@ -7,9 +7,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class AppSocialButton extends StatelessWidget {
   final SocialType socialType;
   final Icon icon;
+  final VoidCallback onPressed;
 
   AppSocialButton({
     @required this.socialType,
+    this.onPressed,
     this.icon,
   });
 
@@ -39,15 +41,18 @@ class AppSocialButton extends StatelessWidget {
         break;
     }
 
-    return Container(
-      height: ButtonStyles.buttonHeight,
-      width: ButtonStyles.buttonHeight,
-      decoration: BoxDecoration(
-        color: buttonColor,
-        borderRadius: BorderRadius.circular(BaseStyles.borderRadius),
-        boxShadow: BaseStyles.boxShadow,
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        height: ButtonStyles.buttonHeight,
+        width: ButtonStyles.buttonHeight,
+        decoration: BoxDecoration(
+          color: buttonColor,
+          borderRadius: BorderRadius.circular(BaseStyles.borderRadius),
+          boxShadow: BaseStyles.boxShadow,
+        ),
+        child: Icon(icon, color: iconColor),
       ),
-      child: Icon(icon, color: iconColor),
     );
   }
 }

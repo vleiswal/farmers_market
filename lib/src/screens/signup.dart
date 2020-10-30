@@ -132,6 +132,7 @@ class _SignupState extends State<Signup> {
             children: <Widget>[
               AppSocialButton(
                 socialType: SocialType.Facebook,
+                onPressed: authBloc.signinFacebook,
               ),
               SizedBox(
                 width: 40.0,
