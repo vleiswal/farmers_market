@@ -140,6 +140,7 @@ class _LoginState extends State<Login> {
               ),
               AppSocialButton(
                 socialType: SocialType.Google,
+                onPressed: authBloc.signinGoogle,
               ),
             ],
           ),

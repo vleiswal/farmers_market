@@ -139,6 +139,7 @@ class _SignupState extends State<Signup> {
               ),
               AppSocialButton(
                 socialType: SocialType.Google,
+                onPressed: authBloc.signinGoogle,
               ),
             ],
           ),
